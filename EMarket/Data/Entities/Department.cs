@@ -7,16 +7,15 @@ using System.Threading.Tasks;
 
 namespace EMarket.Data.Entities
 {
-    public class Country
+    public class Department
     {
         public int Id { get; set; }
-        
+
         [MaxLength(50)]
         [Required]
         public string Name { get; set; }
-
-        public ICollection<Department> Departments { get; set; }
-        [DisplayName("Departments Number")]
-        public int DepartmentsNumber => Departments == null ? 0 : Departments.Count;
+        public ICollection<City> Cities { get; set; }
+        [DisplayName("Cities Number")]
+        public int CitiesNumber => Cities == null ? 0 : Cities.Count;
     }
 }
