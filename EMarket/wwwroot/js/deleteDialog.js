@@ -1,19 +1,21 @@
 ﻿(function (soccerDeleteDialog) {
+
     var methods = {
         "openModal": openModal,
         "deleteItem": deleteItem
     };
+
     var item_to_delete;
+
     /**
-    * Open a modal by class name or Id.
-    *
-    * @return string id item.
-    */
+         * Open a modal by class name or Id.
+         *
+         * @return string id item.
+         */
     function openModal(modalName, classOrId, sourceEvent, deletePath, eventClassOrId) {
         var textEvent;
         if (classOrId) {
             textEvent = "." + modalName;
-            7
         } else {
             textEvent = "#" + modalName;
         }
@@ -22,11 +24,12 @@
             deleteItem(sourceEvent, deletePath, eventClassOrId);
         });
     }
+
     /**
-    * Path to delete an item.
-    *
-    * @return void.
-    */
+     * Path to delete an item.
+     *
+     * @return void.
+     */
     function deleteItem(sourceEvent, deletePath, eventClassOrId) {
         var textEvent;
         if (eventClassOrId) {
@@ -38,5 +41,7 @@
             window.location.href = deletePath + item_to_delete;
         });
     }
+
     soccerDeleteDialog.sc_deleteDialog = methods;
-})(window); 
+
+})(window);

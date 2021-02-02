@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,5 +14,8 @@ namespace EMarket.Data.Entities
         [MaxLength(50)]
         [Required]
         public string Name { get; set; }
+
+        [NotMapped]
+        public int IdDepartment { get; set; }
     }
 }
