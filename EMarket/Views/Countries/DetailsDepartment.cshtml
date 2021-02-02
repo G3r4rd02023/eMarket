@@ -23,14 +23,10 @@
     </dl>
 </div>
 <div>
-    <a asp-action="AddCity" asp-route-id="@Model.Id" class="btn btn-primary">
-        <i class="glyphicon glyphicon-plus"></i> City
-    </a>
-    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
-    <a asp-action="Details" asp-route-id="@Model.IdCountry" class="btn btn-success">
-        Back to
-        List
-    </a>
+    <a asp-action="AddCity" asp-route-id="@Model.Id" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> City</a>
+    <a asp-action="EditDepartment" asp-route-id="@Model.Id" class="btn btn-warning"><i class = "glyphicon glyphicon-pencil"></i> Edit</a>
+    <a asp-action="Details" asp-route-id="@Model.IdCountry" class="btn btn-success">Back to List </a>
+
 </div>
 <br />
 <div class="row">
@@ -47,7 +43,6 @@
                                 @Html.DisplayNameFor(model => model.Cities.FirstOrDefault().Name)
                             </th>
                             <th></th>
-                            23
                         </tr>
                     </thead>
                     <tbody>
@@ -58,8 +53,8 @@
                                     @Html.DisplayFor(modelItem => item.Name)
                                 </td>
                                 <td>
-                                    <a asp-action="EditCity" asp-route-id="@item.Id" class="btn btnwarning"><i class="glyphicon glyphicon-pencil"></i></a>
-                                    <button data-id="@item.Id" class="btn btn-danger deleteItem" datatoggle="modal" data-target="#deleteDialog"><i class="glyphicon glyphicon-trash"></i></button>
+                                    <a asp-action="EditCity" asp-route-id="@item.Id" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i></a>
+                                    <button data-id="@item.Id" class="btn btn-danger deleteItem" data-toggle="modal" data-target="#deleteDialog"><i class="glyphicon glyphicon-trash"></i></button>
                                 </td>
                             </tr>
                         }
@@ -69,18 +64,19 @@
         </div>
     </div>
 </div>
+
 <partial name="_DeleteDialog" />
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="/js/deleteDialog.js"></script>
     <script type="text/javascript">
- $(document).ready(function () {
- $('#MyTable').DataTable();
- // Delete item
- sc_deleteDialog.openModal('deleteItem', true, 'btnYesDelete', '/Countries/DeleteCity/',
-false);
- });
+        $(document).ready(function () {
+            $('#MyTable').DataTable();
+            // Delete item
+            sc_deleteDialog.openModal('deleteItem', true, 'btnYesDelete', '/Countries/DeleteCity/', false);
+        });
     </script>
 }
 
